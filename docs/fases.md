@@ -14,11 +14,13 @@ Estado: **completada**.
 
 ## Fase 2 — Operación del sistema
 
-Estado: **pendiente**.
+Estado: **completada**.
 
-- Creación, consulta, edición y cierre de tickets.
-- Gestión de usuarios según permisos.
-- Correos automáticos y procesamiento mediante colas.
+- Creación, consulta, búsqueda, filtros, edición y cierre auditado de tickets.
+- Acceso limitado a tickets propios para usuarios y acceso global para el equipo de soporte.
+- Gestión de roles de usuarios exclusiva para administradores.
+- Correos automáticos en cola al crear, actualizar y cerrar tickets.
+- Pruebas funcionales de los flujos, autorizaciones y notificaciones.
 
 ## Fase 3 — Diseño final
 

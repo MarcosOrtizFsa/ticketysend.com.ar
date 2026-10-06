@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Enums\TicketStatus;
 use App\Models\Ticket;
 use App\Models\User;
 
@@ -30,13 +31,15 @@ class TicketPolicy
     public function update(User $user, Ticket $ticket): bool
     {
         return $user->hasAnyRole(['admin', 'supervisor'])
-            && $user->can('editar tickets');
+            && $user->can('editar tickets')
+            && $ticket->status !== TicketStatus::Closed;
     }
 
     public function close(User $user, Ticket $ticket): bool
     {
         return $user->hasAnyRole(['admin', 'supervisor'])
-            && $user->can('cerrar tickets');
+            && $user->can('cerrar tickets')
+            && $ticket->status !== TicketStatus::Closed;
     }
 
     public function delete(User $user, Ticket $ticket): bool

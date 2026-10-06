@@ -23,4 +23,14 @@
             </ul>
         </section>
     </div>
+
+    <div class="flex flex-wrap gap-3">
+        <flux:button href="{{ route('tickets.index') }}" variant="primary" wire:navigate>Ver tickets</flux:button>
+        @can('create', App\Models\Ticket::class)
+            <flux:button href="{{ route('tickets.create') }}" wire:navigate>Crear ticket</flux:button>
+        @endcan
+        @can('gestionar usuarios')
+            <flux:button href="{{ route('users.index') }}" wire:navigate>Gestionar usuarios</flux:button>
+        @endcan
+    </div>
 </div>

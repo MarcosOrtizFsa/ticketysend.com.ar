@@ -1,6 +1,6 @@
 # Tickets y Send
 
-Base de un sistema de tickets de soporte desarrollada para Programación IV. La fase 1 incluye autenticación, roles, permisos, estructura de tickets y preparación de correo y colas. Las operaciones y pantallas de tickets pertenecen a la fase 2.
+Sistema de tickets de soporte desarrollado para Programación IV. Las fases 1 y 2 incluyen autenticación, roles, permisos, operación completa de tickets, gestión de usuarios y notificaciones por correo en cola. El diseño visual definitivo pertenece a la fase 3.
 
 ## Tecnologías
 
@@ -65,6 +65,17 @@ El seeder no cambia contraseñas de cuentas existentes y no se ejecuta automáti
 
 Los usuarios comunes solo pueden visualizar tickets propios. Administradores y supervisores pueden visualizar todos; la edición y el cierre requieren además el permiso correspondiente.
 
+## Operación de tickets
+
+- Los tres roles pueden crear tickets y consultar los que tengan autorizados.
+- Los usuarios comunes solo ven sus propios tickets.
+- Administradores y supervisores pueden editar prioridad, contenido y estado operativo.
+- El cierre registra usuario y fecha, y vuelve inmutable al ticket.
+- No se permite eliminar tickets ni usuarios.
+- El identificador visible se deriva del ID, por ejemplo `TKT-000001`.
+
+Los administradores acceden además a la gestión de usuarios para asignar uno de los tres roles. Un administrador no puede cambiar su propio rol y el sistema protege la existencia de al menos un administrador.
+
 ## Desarrollo
 
 Todos los servicios principales pueden iniciarse juntos:
@@ -93,7 +104,7 @@ php artisan queue:failed
 
 `.env.example` contiene la configuración SMTP de referencia para Brevo mediante `MAIL_SCHEME`, variable consumida por `config/mail.php`. `MAIL_USERNAME` debe ser el usuario SMTP de Brevo y `MAIL_PASSWORD` la **SMTP Key**, no la API Key. El remitente debe estar verificado.
 
-El entorno local conserva `MAIL_MAILER=log` para no enviar correos reales durante esta fase. Los mailables y envíos automáticos se implementarán en la fase 2.
+El entorno local conserva `MAIL_MAILER=log` para no enviar correos reales por accidente. Al crear, actualizar o cerrar un ticket se encola un correo para su creador. Para procesarlo se debe mantener activo `php artisan queue:work --tries=3`.
 
 ## Verificación
 
@@ -107,12 +118,8 @@ composer audit --locked
 npm audit
 ```
 
-## Preparado para la fase 2
+## Estado de las fases
 
-- Modelo, migración, enums, factory y policy de tickets.
-- Roles y permisos repetibles.
-- Cola con driver `database` y tablas de jobs/fallos.
-- Configuración SMTP de ejemplo para Brevo.
-- Autenticación completa y dashboard protegido.
-
-No se implementaron todavía CRUD de tickets, gestión de usuarios, mailables ni envíos automáticos.
+- Fase 1: base, autenticación y autorización completadas.
+- Fase 2: tickets, gestión de usuarios y correos automáticos completados.
+- Fase 3: diseño visual definitivo y refinamiento de experiencia pendientes.
