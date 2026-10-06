@@ -9,4 +9,84 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-brand-50: #eff7ff;
+    --color-brand-100: #dcedff;
+    --color-brand-500: #1677ff;
+    --color-brand-600: #0964db;
+    --color-brand-700: #0a4fab;
+    --color-ink-900: #10233f;
+    --color-accent-500: #ff6b4a;
+}
+
+@layer base {
+    html { scroll-behavior: smooth; }
+    body { min-width: 320px; }
+    :focus-visible { outline: 3px solid color-mix(in srgb, #1677ff 45%, transparent); outline-offset: 3px; }
+    ::selection { background: #dcedff; color: #10233f; }
+}
+
+@layer components {
+    .app-background {
+        background-color: #f7f9fc;
+        background-image:
+            radial-gradient(circle at 8% 0%, rgb(22 119 255 / 9%), transparent 28rem),
+            radial-gradient(circle at 92% 12%, rgb(255 107 74 / 7%), transparent 24rem);
+    }
+
+    .surface-card {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_35px_-24px_rgba(15,35,64,0.35)];
+    }
+
+    .eyebrow {
+        @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+    }
+
+    .nav-link {
+        @apply rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-ink-900;
+    }
+
+    .nav-link-active {
+        @apply bg-brand-50 text-brand-700;
+    }
+
+    .field-select,
+    .field-textarea {
+        @apply mt-2 block w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 hover:border-slate-400 focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+    }
+
+    .status-pill {
+        @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+    }
+
+    .status-open { @apply bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200; }
+    .status-progress { @apply bg-amber-50 text-amber-700 ring-1 ring-inset ring-amber-200; }
+    .status-closed { @apply bg-slate-100 text-slate-600 ring-1 ring-inset ring-slate-200; }
+    .priority-high { @apply text-red-700; }
+    .priority-medium { @apply text-amber-700; }
+    .priority-low { @apply text-emerald-700; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .app-background {
+        background-color: #07111f;
+        background-image:
+            radial-gradient(circle at 8% 0%, rgb(22 119 255 / 13%), transparent 28rem),
+            radial-gradient(circle at 92% 12%, rgb(255 107 74 / 8%), transparent 24rem);
+    }
+    .surface-card { @apply border-slate-800 bg-slate-900; }
+    .nav-link { @apply text-slate-300 hover:bg-slate-800 hover:text-white; }
+    .nav-link-active { @apply bg-blue-950 text-blue-200; }
+    .field-select, .field-textarea { @apply border-slate-700 bg-slate-900 text-slate-100 hover:border-slate-600 focus:border-brand-500 focus:ring-blue-950; }
+    .status-open { @apply bg-emerald-950 text-emerald-300 ring-emerald-900; }
+    .status-progress { @apply bg-amber-950 text-amber-300 ring-amber-900; }
+    .status-closed { @apply bg-slate-800 text-slate-300 ring-slate-700; }
 }

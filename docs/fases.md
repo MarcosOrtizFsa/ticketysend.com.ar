@@ -24,7 +24,11 @@ Estado: **completada**.
 
 ## Fase 3 — Diseño final
 
-Estado: **pendiente**.
+Estado: **completada**.
 
-- Diseño visual definitivo.
-- Refinamiento responsive, accesibilidad y experiencia de usuario.
+- Identidad visual definitiva con paleta, marca y jerarquía tipográfica propias.
+- Navegación responsive con estados activos y acceso móvil.
+- Tablas adaptadas a tarjetas en pantallas pequeñas.
+- Estados y prioridades distinguibles mediante texto, color y contraste.
+- Foco visible, enlace para saltar al contenido y compatibilidad con movimiento reducido.
+- Soporte visual para modo claro y oscuro según preferencias del sistema.

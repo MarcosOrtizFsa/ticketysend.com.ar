@@ -1,6 +1,6 @@
 # Tickets y Send
 
-Sistema de tickets de soporte desarrollado para Programación IV. Las fases 1 y 2 incluyen autenticación, roles, permisos, operación completa de tickets, gestión de usuarios y notificaciones por correo en cola. El diseño visual definitivo pertenece a la fase 3.
+Sistema de tickets de soporte desarrollado para Programación IV. Incluye autenticación, roles, permisos, operación completa de tickets, gestión de usuarios, notificaciones por correo en cola y una interfaz responsive y accesible.
 
 ## Tecnologías
 
@@ -122,4 +122,4 @@ npm audit
 
 - Fase 1: base, autenticación y autorización completadas.
 - Fase 2: tickets, gestión de usuarios y correos automáticos completados.
-- Fase 3: diseño visual definitivo y refinamiento de experiencia pendientes.
+- Fase 3: diseño visual definitivo, responsive y accesibilidad completados.
