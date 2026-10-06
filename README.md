@@ -2,6 +2,8 @@
 
 Sistema de tickets de soporte desarrollado para Programación IV. Incluye autenticación, roles, permisos, operación completa de tickets, gestión de usuarios, notificaciones por correo en cola y una interfaz responsive y accesible.
 
+La documentación para usuarios finales está disponible en [`docs/guia-usuario.md`](docs/guia-usuario.md).
+
 ## Tecnologías
 
 - PHP 8.2 y Laravel 12.
